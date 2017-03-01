@@ -19,7 +19,6 @@ using vector = boost::container::vector<T>;
 
 class CudaSolver {
 public:
-	explicit
 	CudaSolver();
 
 	virtual
