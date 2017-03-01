@@ -21,7 +21,7 @@ set(SOURCE_FILES
 		include/cuda_solver.hpp
 		src/cuda_solver.cpp
 		include/utils.hpp
-		include/ObservableValue.hpp)
+		include/observable_value.hpp)
 
 add_library(CudaSolver SHARED ${SOURCE_FILES})
 target_link_libraries(CudaSolver Solver ${CUDA_LIBRARIES} ${Boost_LIBRARIES})

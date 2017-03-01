@@ -7,7 +7,7 @@
 
 
 #include "utils.hpp"
-#include "ObservableValue.hpp"
+#include "observable_value.hpp"
 
 #include <iostream>
 #include <boost/container/vector.hpp>
