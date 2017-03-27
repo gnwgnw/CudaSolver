@@ -1,5 +1,5 @@
-#include "../include/cuda_solver.hpp"
-#include "../include/cuda_utils.cuh"
+#include "cuda_solver.hpp"
+#include "cuda_utils.cuh"
 
 
 void

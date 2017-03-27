@@ -2,7 +2,7 @@
 // Created by tsv on 05.05.16.
 //
 
-#include "../include/cuda_solver.hpp"
+#include "cuda_solver.hpp"
 
 
 CudaSolver::CudaSolver()
