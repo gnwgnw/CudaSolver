@@ -16,7 +16,7 @@ set(CUDA_SOURCE_FILES
 		src/cuda_solver.cu
 		include/cuda_utils.cuh)
 
-cuda_add_library(Solver SHARED ${CUDA_SOURCE_FILES})
+cuda_compile(Solver SHARED ${CUDA_SOURCE_FILES})
 
 
 set(SOURCE_FILES
@@ -26,5 +26,5 @@ set(SOURCE_FILES
 		include/observable_value.hpp
 		include/cuda_utils.cuh)
 
-add_library(CudaSolver SHARED ${SOURCE_FILES})
-target_link_libraries(CudaSolver Solver ${CUDA_LIBRARIES} ${Boost_LIBRARIES})
+add_library(CudaSolver SHARED ${SOURCE_FILES} ${Solver})
+target_link_libraries(CudaSolver ${CUDA_LIBRARIES} ${Boost_LIBRARIES})
