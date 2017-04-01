@@ -148,7 +148,7 @@ CudaSolver::fill_x()
 	float h = this->h;
 
 	x[0] = x_it;
-	std::generate(x.begin() + 1, x.end(), [&x_it, h] {
+	std::generate(x.begin() + 1, x.end(), [&x_it, h] () -> float {
 		return x_it += h;
 	});
 

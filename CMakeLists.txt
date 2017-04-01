@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.6)
 project(CudaSolver)
 
-set(CMAKE_CXX_STANDARD 11)
+set(CMAKE_CXX_STANDARD 14)
 set(CUDA_NVCC_FLAGS ${CUDA_NVCC_FLAGS} -std=c++11)
 
 find_package(CUDA REQUIRED)
