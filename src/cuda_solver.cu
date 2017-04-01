@@ -28,7 +28,6 @@ CudaSolver::alloc_dev_mem()
 	cuda_check_error(cudaMalloc((void**) &d_y_in, data_size));
 	cuda_check_error(cudaMalloc((void**) &d_y_out, data_size));
 	cuda_check_error(cudaMemcpy(d_y_in, y.data(), data_size, cudaMemcpyHostToDevice));
-	cuda_check_error(cudaMemcpy(d_y_out, y.data(), data_size, cudaMemcpyHostToDevice));
 }
 
 void
