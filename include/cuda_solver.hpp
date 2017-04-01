@@ -61,6 +61,9 @@ public:
 	const vector<float>&
 	get_y();
 
+	void
+	set_y(const vector<float>& y);
+
 protected:
 	float* d_y_in;
 	float* d_y_out;

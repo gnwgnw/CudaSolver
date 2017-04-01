@@ -81,6 +81,14 @@ CudaSolver::get_y()
 	return y;
 }
 
+void
+CudaSolver::set_y(const vector<float>& y)
+{
+	is_y_cached = true;
+	this->y = y;
+	n = y.size();
+}
+
 ObservableValue<float>&
 CudaSolver::get_x_0()
 {
@@ -148,7 +156,7 @@ CudaSolver::fill_x()
 	float h = this->h;
 
 	x[0] = x_it;
-	std::generate(x.begin() + 1, x.end(), [&x_it, h] () -> float {
+	std::generate(x.begin() + 1, x.end(), [&x_it, h]() -> float {
 		return x_it += h;
 	});
 
