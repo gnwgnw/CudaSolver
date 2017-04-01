@@ -25,6 +25,9 @@ CudaSolver::CudaSolver()
 	change_data_size();
 	change_grids();
 
+	alloc_dev_mem();
+	copy_to_device();
+
 	x_0.connect(boost::bind(&CudaSolver::change_h, this));
 	x_1.connect(boost::bind(&CudaSolver::change_h, this));
 
@@ -35,8 +38,6 @@ CudaSolver::CudaSolver()
 	n.connect(boost::bind(&CudaSolver::change_data_size, this));
 	n.connect(boost::bind(&CudaSolver::change_xy, this));
 	n.connect(boost::bind(&CudaSolver::change_d_y, this));
-
-	alloc_dev_mem();
 }
 
 CudaSolver::~CudaSolver()
@@ -86,7 +87,12 @@ CudaSolver::set_y(const vector<float>& y)
 {
 	is_y_cached = true;
 	this->y = y;
-	n = y.size();
+	if (n != y.size()) {
+		n = y.size();
+	}
+	else {
+		copy_to_device();
+	}
 }
 
 ObservableValue<float>&
@@ -188,6 +194,7 @@ CudaSolver::change_d_y()
 {
 	free_dev_mem();
 	alloc_dev_mem();
+	copy_to_device();
 }
 
 void

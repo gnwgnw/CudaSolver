@@ -113,6 +113,9 @@ private:
 	copy_from_device();
 
 	void
+	copy_to_device();
+
+	void
 	alloc_dev_mem();
 
 	void
