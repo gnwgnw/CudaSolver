@@ -2,6 +2,7 @@
 // Created by tsv on 05.05.16.
 //
 
+#include <cmath>
 #include "cuda_solver.hpp"
 
 
@@ -164,7 +165,7 @@ CudaSolver::change_h()
 void
 CudaSolver::change_n()
 {
-	n = (x_1 - x_0) / h;
+	n = round((x_1 - x_0) / h);
 }
 
 void
